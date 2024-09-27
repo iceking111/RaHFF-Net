@@ -1,6 +1,5 @@
-# Remote Sensing Image Change Detection with Transformers
-
-Here, we provide the pytorch implementation of the paper: Remote Sensing Image Change Detection with Transformers.
+# RaHFF-Net: Recall-adjustable Hierarchical Feature Fusion Network for Remote Sensing Image Change Detection
+Here, we provide the pytorch implementation of the paper: RaHFF-Net: Recall-adjustable Hierarchical Feature Fusion Network for Remote Sensing Image Change Detection.
 
 For more ore information, please see our published paper at [IEEE TGRS](https://ieeexplore.ieee.org/document/9491802) or [arxiv](https://arxiv.org/abs/2103.00208). 
 
@@ -20,8 +19,8 @@ einops  0.3.0
 Clone this repo:
 
 ```shell
-git clone https://github.com/justchenhao/BIT_CD.git
-cd BIT_CD
+git clone https://github.com/iceking111/RaHFF-Net
+cd models
 ```
 
 ## Quick Start
