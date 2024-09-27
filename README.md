@@ -23,17 +23,6 @@ git clone https://github.com/iceking111/RaHFF-Net.git
 cd models
 ```
 
-## Quick Start
-
-We have some samples from the [LEVIR-CD](https://justchenhao.github.io/LEVIR/) dataset in the folder `samples` for a quick start.
-
-Firstly, you can download our BIT pretrained model——by [baidu drive, code: 2lyz](https://pan.baidu.com/s/1HiXwpspl6odYQKda6pMuZQ) or [google drive](https://drive.google.com/file/d/1IVdF5a3e1_7DiSndtMkhpZuCSgDLLFcg/view?usp=sharing). After downloaded the pretrained model, you can put it in `checkpoints/BIT_LEVIR/`.
-
-Then, run a demo to get started as follows:
-
-```python
-python model.py
-```
 
 
 ## Train
