@@ -3,7 +3,7 @@ Here, we provide the pytorch implementation of the paper: RaHFF-Net: Recall-adju
 
 For more ore information, please see our published paper at [IEEE TGRS](https://ieeexplore.ieee.org/document/9491802) or [arxiv](https://arxiv.org/abs/2103.00208). 
 
-![image-20210228153142126](all_framework.pdf)
+![image-20210228153142126](all_framework.png)
 
 ## Requirements
 
@@ -19,7 +19,7 @@ einops  0.3.0
 Clone this repo:
 
 ```shell
-git clone https://github.com/iceking111/RaHFF-Net
+git clone https://github.com/iceking111/RaHFF-Net.git
 cd models
 ```
 
