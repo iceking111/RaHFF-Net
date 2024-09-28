@@ -7,8 +7,7 @@ from torch.utils.data import Dataset
 from PIL import Image
 import numpy as np
 
-# 每次迭代喂进网络的图像都是数据增强的图片，
-# 如果增强方法比较多，那么每次给网络的图像都是不一样的，间接增加了训练的数据量
+
 
 class RandomHorizontalFlip1(object):
     def __init__(self, flip_prob):
@@ -75,15 +74,15 @@ class AddPepperNoise(object):
         self.p = p
 
     def addZao(self,img):
-        # 把img转化成ndarry的形式
+
         img_ = np.array(img).copy()
         h, w, c = img_.shape
-        # 原始图像的概率（这里为0.9）
+
         signal_pct = self.snr
-        # 噪声概率共0.1
+
         noise_pct = (1 - self.snr)
         mask = np.random.choice((0, 1, 2), size=(h, w, 1), p=[signal_pct, noise_pct / 2., noise_pct / 2.])
-        # 将mask按列复制c遍
+
         mask = np.repeat(mask, c, axis=2)
         img_[mask == 1] = 255  # 盐噪声
         img_[mask == 2] = 0  # 椒噪声
@@ -105,15 +104,15 @@ def load_img():
             RandomHorizontalFlip1(0.5),  # 水平翻转
             RandomVerticalFlip1(0.5),  # 垂直翻转
             # AddPepperNoise(0.5),
-            ToTensor1(),  # 转化为 Tensor 并归一化
+            ToTensor1(), 
             Normalize111((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
         ]),
         'test': Compose1([
-            ToTensor1(),  # 转化为 Tensor 并归一化
+            ToTensor1(), 
             Normalize111((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
         ]),
         'val': Compose1([
-            ToTensor1(),  # 转化为 Tensor 并归一化
+            ToTensor1(),  
             Normalize111((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
         ])
     }
@@ -127,7 +126,7 @@ def load_img():
             imgA = [] 
             imgB = []
             label = []
-            for line in data: #这里的line是每个图片的名字
+            for line in data: 
                 imgA.append('D:\Desktop\dataset\levircd11/A'+line)
                 imgB.append('D:\Desktop\dataset\levircd11/B'+line)
                 label.append('D:\Desktop\dataset\levircd11/label'+line)
@@ -149,15 +148,13 @@ def load_img():
             return imgA,imgB,label
 
 
-    # label不需要数据增强
-    # 相当于每个需要三个输入 A、B、C这三个输入得到的变化是相同的
     image_datasets = {}
 
     for x in ['train','test','val']:
         name = x+'.txt'
         image_datasets[x] = MyDataset(name, data_transforms[x])
 
-    batch_size = 1 #根据显存大小设置
+    batch_size = 1 
     dataloaders = {x: torch.utils.data.DataLoader(image_datasets[x], batch_size=batch_size, shuffle=True) for x in ['train', 'test', 'val']}
 
     traindataloader = dataloaders['train']
@@ -174,7 +171,6 @@ if __name__ == '__main__':
         print(type(input1))
         x = input1[0]
         y = input2[0]
-        #在这绘制x分类的图像
         toPIL = transforms.ToPILImage()
         pic = toPIL(x)
         pic.save('random.jpg')
