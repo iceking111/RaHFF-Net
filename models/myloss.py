@@ -3,18 +3,6 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 
-# class BCE_loss(nn.Module):
-#     def __init__(self):
-#         super(BCE_loss, self).__init__()
-#
-#     def forward(self, input, target):
-#         # 确保 input 和 target 是浮点型
-#         input = input.float()
-#         target = target.float()
-#
-#         # 计算二元交叉熵损失
-#         bce_loss = F.binary_cross_entropy_with_logits(input, target)
-#         return bce_loss.mean()
 
 
 class MyEntropyLoss(nn.Module): #创新
@@ -42,19 +30,6 @@ class MyEntropyLoss(nn.Module): #创新
 
         return loss
 
-
-# class CombinedLoss(nn.Module): #两个结合
-#     def __init__(self):
-#         super(CombinedLoss, self).__init__()
-#
-#     def forward(self, out, target):
-#         fl = BCE_loss()
-#         # ml = MyEntropyLoss()
-#         # ml_out = ml(out, target)
-#         fl_out = fl(out, target)
-#         #total_loss =  fl_out * 0.7 + ml_out * 0.3 #尝试不同比例+
-#         total_loss = fl_out
-#         return total_loss
 
 
 class BCE_loss(nn.Module):
