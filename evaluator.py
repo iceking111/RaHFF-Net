@@ -23,10 +23,6 @@ class CDEvaluator():
         self.net_G = Net()
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-        #self.net_G = self.net_G.to(self.device)
-
-        #print(self.device)
-
         # define some other vars to record the training states
         self.running_metric = ConfuseMatrixMeter(n_class=self.n_class)
 
