@@ -77,15 +77,16 @@ Code is released for non-commercial and research purposes **only**. For commerci
 If you use this code for your research, please cite our paper:
 
 ```
-@Article{chen2021a,
-    title={Remote Sensing Image Change Detection with Transformers},
-    author={Hao Chen, Zipeng Qi and Zhenwei Shi},
-    year={2021},
-    journal={IEEE Transactions on Geoscience and Remote Sensing},
-    volume={},
-    number={},
-    pages={1-14},
-    doi={10.1109/TGRS.2021.3095166}
-}
+@ARTICLE{10733986,
+  author={Wang, Bin and Zhao, Kang and Xiao, Tong and Qin, Pinle and Zeng, Jianchao},
+  journal={IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing}, 
+  title={RaHFF-Net: Recall-Adjustable Hierarchical Feature Fusion Network for Remote Sensing Image Change Detection}, 
+  year={2025},
+  volume={18},
+  number={},
+  pages={176-190},
+  keywords={Feature extraction;Transformers;Semantics;Lighting;Data mining;Tensors;Correlation;Noise;Indexes;Adaptation models;Change detection (CD);hyperexpectation push pull (HEPP) loss;multiscale feature fusion;transformer},
+  doi={10.1109/JSTARS.2024.3485687}}
+
 ```
 
