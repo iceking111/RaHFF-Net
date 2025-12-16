@@ -3,51 +3,6 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 
-
-
-class MyEntropyLoss(nn.Module): #创新
-    def __init__(self):
-        super(MyEntropyLoss, self).__init__()
-        self.softmax = nn.Softmax(dim=1)
-
-    def forward(self, outputs, labels):#自己写损失函数
-
-        outputs = self.softmax(outputs)
-        outputs = outputs[:, 1:2, :, :]              # 先切片得到第二个变化的图片
-
-        nc = torch.sum((labels == 1).float())                       # 加和就是1的数量   1就是变化，0就是没变化
-        nu = torch.sum((labels == 0).float())
-
-        loss1 = 0
-        loss2 = 0
-        if nc != 0:                                  # 写了这个就不用写加一个特别小的数字了
-            loss1 = torch.sum(labels * torch.clamp(3.5 - outputs, min=0.0)) / nc
-
-        if nu != 0:
-            loss2 = torch.sum((1 - labels) * outputs) / nu
-
-        loss = loss1 + loss2
-
-        return loss
-
-
-
-class BCE_loss(nn.Module):
-    def __init__(self):
-        super(BCE_loss, self).__init__()
-
-    def forward(self, input, target):
-        input = torch.flatten(input)
-        target = torch.flatten(target)
-        input = input.float()
-        s = 1 - input
-        input = torch.cat((s.reshape(-1, 1), input.reshape(-1, 1)), dim=1)
-        target = target.float()
-        ce_loss = F.cross_entropy(input, target)
-        return ce_loss.mean()
-
-
-
 class CombinedLoss(nn.Module):
 
     """
@@ -78,3 +33,4 @@ if __name__ == '__main__':
 
     loss = net(input, target)
     print(loss)
+
